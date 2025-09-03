@@ -35,6 +35,7 @@ estudiantes = [
 
 df_estudiantes = pd.DataFrame(estudiantes)
 df_Notas = df_estudiantes.explode("notas")
+df_Notas["notas"] = df_Notas["notas"].astype(float)
 
 #Desafio 1
 
@@ -55,18 +56,17 @@ print(f"\n\n la cantidad de aprobados es : {aprobados}")
 
 
 #Desafio 3
-moda = df_Notas.mode()
+moda = df_Notas["notas"].mode()
 
-print(f"\n\n La nota mas frecuente (Moda) es:\n {moda}")
+print(f"\n\n La nota más frecuente (Moda) es:\n {moda.tolist()}")
 
 #Desafio 4
 
 mascara_Notas = df_Notas["notas"] < 4.0
-estudiantes_Bajo_4 = df_Notas.loc[mascara_Notas, "nombre"].unique
-
+estudiantes_Bajo_4 = df_Notas.loc[mascara_Notas, "nombre"].unique()
 Porcentaje = (len(estudiantes_Bajo_4) / len(df_estudiantes)) * 100
 
-print(f"\n\n El porcentaje de estudiantes con almenos una nota < 4,0 es un:\n {Porcentaje:.2f}%")
+print(f"\n\n El porcentaje de estudiantes con al menos una nota < 4.0 es:\n {Porcentaje:.2f}%")
 
 #Desafio 5
 
