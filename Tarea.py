@@ -33,9 +33,8 @@ estudiantes = [
     {"nombre": "Daniela", "notas": [5.0, 5.2, 5.4]}
 ]
 
-print("Hola")
-
 df_estudiantes = pd.DataFrame(estudiantes)
+df = []
 
 #Desafio 1
 df["PROMEDIO"] = df_estudiantes["notas"].apply(lambda x: sum(x)/len(x))
@@ -50,3 +49,17 @@ print(f"\n\n El peor promedio entre los estudiantes es\n {peor_promedio}")
 
 #Desafio 2
 
+#Desafio 3
+df_Notas = df_estudiantes.explode("notas")
+moda = df_Notas.mode()
+
+print(f"La nota mas frecuente (Moda) es: {moda}")
+
+#Desafio 4
+
+mascara_Notas = df_Notas["notas"] < 4.0
+estudiantes_Bajo_4 = df_Notas.loc[mascara_Notas, "nombre"].unique
+
+Porcentaje = (len(estudiantes_Bajo_4) / len(df_estudiantes)) * 100
+
+print(f"El porcentaje de estudiantes con almenos una nota < 4,0 es de {Porcentaje:.2f}%")
