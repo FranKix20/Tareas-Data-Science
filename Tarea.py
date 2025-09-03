@@ -33,4 +33,4 @@ estudiantes = [
     {"nombre": "Daniela", "notas": [5.0, 5.2, 5.4]}
 ]
 
-print(f"Hola")
+print("Hola")
