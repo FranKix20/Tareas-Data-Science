@@ -32,3 +32,5 @@ estudiantes = [
     {"nombre": "Cristóbal", "notas": [6.5, 6.3, 6.2]},
     {"nombre": "Daniela", "notas": [5.0, 5.2, 5.4]}
 ]
+
+print(f"Hola")
