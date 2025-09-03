@@ -63,3 +63,7 @@ estudiantes_Bajo_4 = df_Notas.loc[mascara_Notas, "nombre"].unique
 Porcentaje = (len(estudiantes_Bajo_4) / len(df_estudiantes)) * 100
 
 print(f"El porcentaje de estudiantes con almenos una nota < 4,0 es de {Porcentaje:.2f}%")
+
+#Desafio 5
+
+#Desafio Extra (Calcular el promedio con .mean directamente)
