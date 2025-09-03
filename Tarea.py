@@ -53,7 +53,7 @@ print(f"\n\n El peor promedio entre los estudiantes es\n {peor_promedio}")
 df_Notas = df_estudiantes.explode("notas")
 moda = df_Notas.mode()
 
-print(f"La nota mas frecuente (Moda) es: {moda}")
+print(f"\n\n La nota mas frecuente (Moda) es:\n {moda}")
 
 #Desafio 4
 
@@ -62,7 +62,7 @@ estudiantes_Bajo_4 = df_Notas.loc[mascara_Notas, "nombre"].unique
 
 Porcentaje = (len(estudiantes_Bajo_4) / len(df_estudiantes)) * 100
 
-print(f"El porcentaje de estudiantes con almenos una nota < 4,0 es de {Porcentaje:.2f}%")
+print(f"\n\n El porcentaje de estudiantes con almenos una nota < 4,0 es un:\n {Porcentaje:.2f}%")
 
 #Desafio 5
 
