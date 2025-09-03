@@ -34,6 +34,7 @@ estudiantes = [
 ]
 
 df_estudiantes = pd.DataFrame(estudiantes)
+df = []
 
 #Desafio 1
 
@@ -52,3 +53,21 @@ nota_bajas = df_estudiantes[df_estudiantes["notas"] < 4.0]
 
 
 
+#Desafio 3
+df_Notas = df_estudiantes.explode("notas")
+moda = df_Notas.mode()
+
+print(f"La nota mas frecuente (Moda) es: {moda}")
+
+#Desafio 4
+
+mascara_Notas = df_Notas["notas"] < 4.0
+estudiantes_Bajo_4 = df_Notas.loc[mascara_Notas, "nombre"].unique
+
+Porcentaje = (len(estudiantes_Bajo_4) / len(df_estudiantes)) * 100
+
+print(f"El porcentaje de estudiantes con almenos una nota < 4,0 es de {Porcentaje:.2f}%")
+
+#Desafio 5
+
+#Desafio Extra (Calcular el promedio con .mean directamente)
