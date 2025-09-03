@@ -34,3 +34,19 @@ estudiantes = [
 ]
 
 print("Hola")
+
+df_estudiantes = pd.DataFrame(estudiantes)
+
+#Desafio 1
+df["PROMEDIO"] = df_estudiantes["notas"].apply(lambda x: sum(x)/len(x))
+
+mejor_promedio = df.loc[df["PROMEDIO"].idxmax()]
+peor_promedio = df.loc[df["PROMEDIO"].idxmin()]
+
+print(df_estudiantes)
+print(df_estudiantes)
+print(f"\n\n El mejor promedio entre los estudiantes es\n {mejor_promedio}")
+print(f"\n\n El peor promedio entre los estudiantes es\n {peor_promedio}")
+
+#Desafio 2
+
