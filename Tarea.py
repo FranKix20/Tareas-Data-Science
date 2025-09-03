@@ -70,4 +70,9 @@ print(f"\n\n El porcentaje de estudiantes con al menos una nota < 4.0 es:\n {Por
 
 #Desafio 5
 
+ordenados_mayor_menor = df_estudiantes.sort_values(by="PROMEDIO", ascending= False)
+
+print(f"\n \n Los estudiantes ordenados de mayor a menor promedio son: ")
+print(ordenados_mayor_menor[["nombre", "PROMEDIO"]])
+
 #Desafio Extra (Calcular el promedio con .mean directamente)
