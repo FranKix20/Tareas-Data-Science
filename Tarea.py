@@ -34,23 +34,27 @@ estudiantes = [
 ]
 
 df_estudiantes = pd.DataFrame(estudiantes)
-df = []
+df_Notas = df_estudiantes.explode("notas")
 
 #Desafio 1
-df["PROMEDIO"] = df_estudiantes["notas"].apply(lambda x: sum(x)/len(x))
 
-mejor_promedio = df.loc[df["PROMEDIO"].idxmax()]
-peor_promedio = df.loc[df["PROMEDIO"].idxmin()]
+df_estudiantes["PROMEDIO"] = df_estudiantes["notas"].apply(lambda x: sum(x) / len(x))
+
+mejor_promedio = df_estudiantes.loc[df_estudiantes["PROMEDIO"].idxmax()]
+peor_promedio = df_estudiantes.loc[df_estudiantes["PROMEDIO"].idxmin()]
 
 print(df_estudiantes)
-print(df_estudiantes)
+
 print(f"\n\n El mejor promedio entre los estudiantes es\n {mejor_promedio}")
 print(f"\n\n El peor promedio entre los estudiantes es\n {peor_promedio}")
 
 #Desafio 2
 
+aprobados = (df_Notas.groupby("nombre")["notas"].min() >= 4.0).sum()
+print(f"\n\n la cantidad de aprobados es : {aprobados}")
+
+
 #Desafio 3
-df_Notas = df_estudiantes.explode("notas")
 moda = df_Notas.mode()
 
 print(f"\n\n La nota mas frecuente (Moda) es:\n {moda}")
